@@ -1,2 +1,8 @@
 
 *.xml
+
+.savedConfig/.gitkraken/
+
+.savedConfig/.vscode/.savedConfig/.gitkraken/
+
+.savedConfig/
