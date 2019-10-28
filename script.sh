@@ -54,7 +54,7 @@ changePwdMenu (){
     banner
     echo " What did you want to do ?"
     echo " [1] Change you password"
-    echo " [2] Reset your password to 000000"
+    echo " [2] Reset your password to 000000 (WIP)"
     echo " [0] Return to the menu"
     echo ""
     read -p " What is your choice ? " changePwdChoice
@@ -66,7 +66,7 @@ changePwdMenu (){
             passwd
         ;;
         2)
-            menu
+            changePwdMenu
         ;;
         *)
             changePwdMenu
@@ -81,6 +81,8 @@ choiceInstallPackages (){
     banner
     echo " What did you want to install ?"
     echo " [1] FileZilla"
+    echo " [2] GitKraken"
+    echo " [3] Visual Studio Code"
     echo " [0] Return to the menu"
     echo ""
     read -p " What is your choice ? " removeWhatTracesChoice
@@ -89,12 +91,32 @@ choiceInstallPackages (){
             menu
         ;;
         1)
+            banner
             echo " FileZilla installation is starting ..."
-            sudo apt-get install filezilla && read -p " FileZilla has been installed." || read -p " FileZilla cannot be installed."
-            menu
+            sudo apt-get install filezilla 1> /dev/null && echo -e " \e[32mFileZilla has been installed.\e[39m" || echo -e " \e[31mFileZilla cannot be installed.\e[39m"
+            read -p " Press enter to continue..."
+            choiceInstallPackages
+        ;;
+        2)
+            banner
+            echo " GitKraken installation is starting ..."
+            sudo apt-get install gitkraken 1> /dev/null && echo -e " \e[32mGitKraken has been installed.\e[39m" || echo -e " \e[31mGitKraken cannot be installed.\e[39m"
+            read -p " Press enter to continue..."
+            choiceInstallPackages
+        ;;
+        3)
+            banner
+            echo " Visual Studio Code installation is starting ..."
+            sudo apt install software-properties-common apt-transport-https wget &> /dev/null
+            wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add - &> /dev/null
+            sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" &> /dev/null
+            sudo apt update &> /dev/null
+            sudo apt install code &> /dev/null && echo -e " \e[32mVisual Studio Code has been installed.\e[39m" || echo -e " \e[31mVisual Studio Code cannot be installed.\e[39m"
+            read -p " Press enter to continue..."
+            choiceInstallPackages
         ;;
         *)
-            choiceRemoveMenu
+            choiceInstallPackages
         ;;
         esac
 }
