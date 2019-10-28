@@ -2,48 +2,38 @@
 
 banner (){
     clear
-    echo " -------------- IT-Akademy --------------"
+    echo -e " --------------------------------- \e[33mIT-Akademy\e[39m ---------------------------------"
     echo " "
 }
-
-changePwdMenu (){
-    read -p " Change PWD"
-    menu
-}
-
-vmInstall (){
-    read -p " VM installed"
-    menu
-}
-
 menu (){
     banner
-    echo "
-         . ,/(((/. .                                                           
-        .(((((((((((                   **   ##              (,                 
-       .(#%#(((((#%#(.               /*     ,,  *@&,    /     /,               
-       &/   &&(&(   %&             ,/       @@  ,@&    /       .(.             
-       @  (..@&@ .(  @               .(     @@  ,@&   ,.      (                
-      .@@/.(@(,(@(./@@.                */   ((   ,%%  *    .(,                 
-      @@(*(((((((((*&@@         ,*                 /                           
-     ,@@@@( ,///, (@@@@,   .,.  ,*   .  .,.     ,, /   .,   . ,.  ,.  .   .    
-      @@@@@@@( (@&@@@@@  .,   * ,*(,   *   ,. (    ( *.   ( *,  (   /  /  *    
-      (%@@@@@@@@@*#&@%#  .*   / ,* *,  /   *, /   .* ,.     *.  (   /  .*(     
-         /@@@@@@@@@/                                                    /      
-          .(#%%%((,                                                    *       "
+    echo -e "\e[107m
+\e[33m⠀⠀⠀⠀⠀⠀⠀⠀⣶⣦⣴⣾⣿⣿⣿⣿⣶⣤⣶⡆⠀⠀⠀\e[33m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀\e[30m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\e[33m⠀⠀⠀⠀⠀⠀⣠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\e[39m
+\e[33m⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀\e[33m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⠛⠀\e[30m⠀⠀⠺⠿⠇⠀⠀⣤⣶⠄⠀⠀\e[33m⠀⠀⢀⡤⠀⠀⠈⠻⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\e[39m
+\e[33m⠀⠀⠀⠀⠀⠀⢠⣿⡿⠛⠛⣿⣿⣿⣿⣿⡿⠛⠛⢿⣿⠀⠀\e[33m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡾⠋⠀⠀⠀\e[30m⠀⠀⣸⣿⡇⠀⢿⣿⣿⣿⡿⠀\e[33m⠀⠀⣾⠀⠀⠀⠀⠀⠈⠛⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\e[39m
+\e[33m⠀⠀⠀⠀⠀⠀⣾⡏⠀⢶⣤⠀⣿⣿⣿⡟⠠⣿⡤⠀⢻⡇⠀\e[33m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣤⠀⠀⠀\e[30m⠀⠀⣸⣿⡇⠀⠀⣿⣿⠇⠀⠀\e[33m⠀⣼⠁⠀⠀⠀⠀⠀⢀⣴⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\e[39m
+\e[33m⠀⠀⠀⠀⠀⠀⣼⣿⣄⣀⣀⣤⣿⠿⠿⣿⣤⣀⣀⣤⣿⣧⠀\e[33m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣦⢀\e[30m⠀⠀⣸⢿⡇⠀⠀⠛⣿⣿⣶⠀\e[33m⣰⠋⠀⠀⠀⠀⣠⣾⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\e[39m
+\e[30m⠀⠀⠀⠀⠀⣴⣿⣷\e[33m⡛⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿\e[30m⢻⣿⣿⣦\e[33m⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\e[39m
+\e[30m⠀⠀⠀⠀⠀⣿⣿⣿⣿⣦\e[33m⣍⠛⠛⠿⠿⠛⢛⣡\e[30m⣾⣿⣿⣿⣿\e[33m⠀⠀⠀⣀⣤⣤⢀⠀⠀⣿⠀⠀⢀⣠⠀⠀⢀⣤⣤⣀⠀⠀⠀⢀⣠⣤⣀⣸⠅⠀⢀⣀⣤⣤⢀⠀⠀⣤⣠⣤⣀⢀⣤⣤⢀⠀⢀⣄⠀⠀⢀⣄⠀⠀⠀⠀⠀\e[39m
+\e[30m⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣷⡀⢠⣿⣿⣿⢿⣿⣿⣿⡿\e[33m⠀⠀⣾⠁⠀⠀⠙⣦⠀⣿⣤⣾⠋⠀⠀⣼⠋⠀⠀⠈⣿⠀⢰⠏⠀⠀⠈⢻⠅⢠⣿⣀⣀⣀⣹⡆⠀⣿⠀⠀⠙⡏⠀⠀⢹⠄⠀⢻⡄⠀⣾⠁⠀⠀⠀⠀⠀\e[39m
+\e[30m⠀⠀⠀⠀⠀⠘⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣼⣿⣿⡿⠁\e[33m⠀⠀⠻⣤⢀⢀⣴⡯⠀⣿⠀⠈⠻⣄⠀⠙⣦⡀⢀⣠⣿⠀⠘⣧⣀⢀⣠⡾⠀⠈⢿⣄⢀⣀⡄⠀⠀⣿⠀⠀⢸⡇⠀⠀⣸⠇⠀⠀⢻⣾⠁⠀⠀⠀⠀⠀⠀\e[39m
+\e[30m⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⣿⣿⣿⣿⣿⣿⣿⣿⠟⠁⠀⠀⠀\e[33m⠀⠀⠀⠀⠈⠈⠀⠈⠀⠈⠀⠀⠀⠈⠀⠀⠀⠈⠈⠀⠈⠀⠀⠀⠈⠈⠀⠀⠀⠀⠀⠈⠈⠈⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⣼⠃⠀⠀⠀⠀⠀⠀⠀\e[39m
+\e[30m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀\e[33m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀\e[39m\e[49m"
     echo ""
     echo -e " Welcome in the \e[33mIT-Akademy\e[39m console"
     echo " What did you want to do ?"
     echo " [1] Remove your traces"
-    echo " [2] Change your pwd"
-    echo " [3] Install a virtual machine"
+    echo " [2] Change your password"
+    echo " [3] Install developper packages"
+    echo " [4] Install a virtual machine"
     echo " [0] Exit"
     echo ""
     read -p " What is your choice ? " menuChoice
     case $menuChoice in
     0)
+        echo " You decided to leave the console."
+        clear
         exit
-        read -p " You decided to leave the console."
     ;;
     1)
         choiceRemoveMenu
@@ -52,12 +42,90 @@ menu (){
         changePwdMenu
     ;;
     3)
+        choiceInstallPackages
+    ;;
+    4)
         vmInstall
      ;;
     *)
         menu
     ;;
     esac
+}
+changePwdMenu (){
+    banner
+    echo " What did you want to do ?"
+    echo " [1] Change you password"
+    echo " [2] Reset your password to 000000"
+    echo " [0] Return to the menu"
+    echo ""
+    read -p " What is your choice ? " changePwdChoice
+    case $changePwdChoice in
+        0)
+            menu
+        ;;
+        1)
+            passwd
+        ;;
+        2)
+            menu
+        ;;
+        *)
+            changePwdMenu
+        ;;
+        esac
+}
+vmInstall (){
+    read -p " VM installed"
+    menu
+}
+choiceInstallPackages (){
+    banner
+    echo " What did you want to install ?"
+    echo " [1] FileZilla"
+    echo " [0] Return to the menu"
+    echo ""
+    read -p " What is your choice ? " removeWhatTracesChoice
+    case $removeWhatTracesChoice in
+        0)
+            menu
+        ;;
+        1)
+            echo " FileZilla installation is starting ..."
+            sudo apt-get install filezilla && read -p " FileZilla has been installed." || read -p " FileZilla cannot be installed."
+            menu
+        ;;
+        *)
+            choiceRemoveMenu
+        ;;
+        esac
+}
+choiceRemoveWhatMenu (){
+    banner
+    echo " What did you want to remove ?"
+    echo " [1] Navigator data"
+    echo " [2] FileZilla data"
+    echo " [0] Return to the menu"
+    echo ""
+    read -p " What is your choice ? " removeWhatTracesChoice
+    case $removeWhatTracesChoice in
+        0)
+            menu
+        ;;
+        1)
+            echo " Navigator traces are going to be revomed ..."
+            ##rm -rf ~/.mozilla
+            ##rm -rf ~/.config/google-chrome
+            read -p " Navigator traces removed."
+            menu
+        ;;
+        2)
+            choiceRemoveWhatMenu
+        ;;
+        *)
+            choiceRemoveMenu
+        ;;
+        esac
 }
 choiceRemoveMenu (){
     banner
@@ -74,11 +142,12 @@ choiceRemoveMenu (){
         1)
             echo " All your traces are going to be revomed ..."
             ##rm -rf ~/.mozilla
+            ##rm -rf ~/.config/google-chrome
             read -p " Traces removed."
             menu
         ;;
         2)
-            choiceRemoveMenu
+            choiceRemoveWhatMenu
         ;;
         *)
             choiceRemoveMenu
