@@ -57,6 +57,9 @@ menu (){
     7)
         vmInstall
      ;;
+     trollaka)
+        trollAka
+     ;;
     *)
         menu
     ;;
@@ -239,6 +242,59 @@ choiceInstallPackages (){
 vmInstall (){
     read -p " VM installed"
     menu
+}
+
+trollAka (){
+    banner
+    echo " What is the password ? "
+    read -s trollAkaChoice
+    encodePass=$(echo $trollAkaChoice | sha256sum)
+    if [[ ${encodePass:0:64} = "28cf29c7d3dae12b89ea05c73ba36184b76a76270e1492a616c0c9ab9e518a5d" ]]
+    then
+        banner
+        echo " What did you want to do ?"
+        echo " [1] Change to a random language (WIP)"
+        echo " [2] Show the angry cat"
+        echo " [0] Return to the menu"
+        echo ""
+        read -p " What is your choice ? " trollAkaChoice
+        case $trollAkaChoice in
+            0)
+                menu
+            ;;
+            1)
+                read -p " Are you sure ? y/n " changeLangSure
+                if [[ ${changeLangSure,,} = "y" ]]
+                then
+                    sudo update-locale LANG=en_US.UTF-8
+                    sudo update-locale LANGUAGE=en
+                    read -p "Language has been changed !"
+                else
+                    trollAka
+                fi
+            ;;
+            2)
+                apt install eog
+                mkdir images &> /dev/null
+                cd images &> /dev/null
+                wget -O angrycat.jpg https://i.kym-cdn.com/photos/images/newsfeed/001/505/718/136.jpg &> /dev/null
+                eog --fullscreen angrycat.jpg &> /dev/null
+                cd ../
+                read -p " Did you see him ? "
+                trollAka
+            ;;
+            3)
+
+            ;;
+            *)
+                trollAka
+            ;;
+            esac
+    else
+        banner
+        read -p "Bad credentials :("
+        menu
+    fi
 }
 
 
