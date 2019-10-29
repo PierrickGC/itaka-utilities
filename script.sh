@@ -100,15 +100,12 @@ menu (){
     6)
         menu #credits
     ;;
-<<<<<<< Updated upstream
     7)
         vmInstall
      ;;
      trollaka)
         trollAka
      ;;
-=======
->>>>>>> Stashed changes
     *)
         menu
     ;;
@@ -321,7 +318,6 @@ vmInstall (){
     menu
 }
 
-<<<<<<< Updated upstream
 trollAka (){
     banner
     echo " What is the password ? "
@@ -378,6 +374,4 @@ trollAka (){
 
 
 
-=======
->>>>>>> Stashed changes
 menu
